@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,41 +10,39 @@
 <body>
 
 @{
-    var date = DateTime.Now.ToString("yyyy-mm-dd");
+    var date = DateTime.Now.ToString("yyyy-MM-dd");
 }
     <header>
         <a asp-page="/Index"><img src="/images/net.png" alt=""></a>
         <div class="date">
-            @* Datumrutan här... *@
             <p>Dagens datum är: @date</p>
         </div>
     </header>
 
     <div class="container">
         <nav>
-            <ul>
-                <li><a asp-area="" asp-page="/Index">Start</a></li>
-                <li><a asp-area="" asp-page ="/Razor">Razor</a></li>
-                <li><a asp-area="" asp-page="/About">Om sidan</a></li>
+            <ul class="navList" id="list">
+                <li class="listItem"><a asp-area="" asp-page="/Index">Start</a></li>
+                <li class="listItem"><a asp-area="" asp-page ="/Razor">Razor</a></li>
+                <li class="listItem"><a asp-area="" asp-page="/About">Om sidan</a></li>
             </ul>
         </nav>
 
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
 
     </div>
 
-    <footer>
+    <footer class="footer">
         <div>
             <p>Av Student Maria Halvarsson - Kontakta mig via epost: maha2216@@student.miun.se</p>
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
+    @* JavaScript filen *@
+    <script src="~/js/site.js" asp-append-version="true"></script> 
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
