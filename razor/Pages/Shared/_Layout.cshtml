@@ -22,9 +22,15 @@
     <div class="container">
         <nav>
             <ul class="navList" id="list">
-                <li class="listItem"><a asp-area="" asp-page="/Index">Start</a></li>
-                <li class="listItem"><a asp-area="" asp-page ="/Razor">Razor</a></li>
-                <li class="listItem"><a asp-area="" asp-page="/About">Om sidan</a></li>
+                <li class="listItem @(ViewBag.Page=="index" ? "active":"")">
+                    <a asp-area="" asp-page="/Index">Start</a>
+                </li>
+                <li class="listItem @(ViewBag.Page=="Razor" ? "active":"")">
+                    <a asp-area="" asp-page ="/Razor">Razor</a>
+                </li>
+                <li class="listItem @(ViewBag.Page=="About" ? "active":"")">
+                    <a asp-area="" asp-page="/About">Om sidan</a>
+                </li>
             </ul>
         </nav>
 
